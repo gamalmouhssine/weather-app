@@ -1,0 +1,44 @@
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: transparent;
+  /* Star field: purple, pink, blue */
+  background-image:
+    radial-gradient(circle, #b39ddb 1.5px, transparent 1.5px), /* purple */
+    radial-gradient(circle, #ffb6c1 1.5px, transparent 1.5px), /* pink */
+    radial-gradient(circle, #6ec6ff 1.2px, transparent 1.2px), /* blue */
+    radial-gradient(circle, #ce93d8 1.2px, transparent 1.2px), /* light purple */
+    radial-gradient(circle, #f06292 1.2px, transparent 1.2px), /* hot pink */
+    radial-gradient(circle, #9575cd 1.2px, transparent 1.2px); /* deep purple */
+  background-size: 120px 120px, 200px 200px, 80px 80px, 160px 160px, 180px 180px, 140px 140px;
+  background-position: 0 0, 60px 100px, 30px 40px, 80px 60px, 100px 120px, 50px 90px;
+  animation: stars-move 40s linear infinite;
+}
+
+@keyframes stars-move {
+  0% { background-position: 0 0, 60px 100px, 30px 40px, 80px 60px, 100px 120px, 50px 90px; }
+  100% { background-position: 120px 120px, 260px 300px, 110px 120px, 200px 180px, 220px 240px, 170px 190px; }
+}
+
+/* Animated twinkling stars overlay */
+.starry-twinkle {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+.starry-twinkle span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle-star 2s infinite alternate;
+  background: none !important;
+  box-shadow: 0 0 6px 2px #b39ddb, 0 0 8px 4px #ffb6c1, 0 0 4px 2px #6ec6ff;
+}
+@keyframes twinkle-star {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 0.2; transform: scale(1.3); }
+}
